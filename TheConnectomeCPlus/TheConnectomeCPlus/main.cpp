@@ -10,7 +10,7 @@
  * when weight is negative, A is off when B is on
  *
  */
-
+#pragma warning(disable : 4996) //_CRT_SECURE_NO_WARNINGS
 using namespace std;
 
 // global variables
@@ -95,7 +95,8 @@ int main()
 	//outputfile.open("/Users/vanessaulloa/ClionProjects/connectome_noMPI/output.txt");
 	//outputfile.open("/Users/vanessaulloa/ClionProjects/Connectome_Capstone_NoMPI/output/" + neuron + "_" + outputDate + ".dat");
 	//outputfile.open("K:\\School\\Summer_2016\\connectome_noMPI\\output\\"+ neuron + "_" + outputDate  + ".dat");
-	outputfile.open("C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\output\\" + neuron + "_" + outputDate + ".dat");
+	//outputfile.open("C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\output\\" + neuron + "_" + outputDate + ".dat");
+	outputfile.open("C:\\Users\\ulloav\\Source\\Repos\\TheConnectomeCPlus\\TheConnectomeCPlus\\TheConnectomeCPlus\\output\\output\\" + neuron + "_" + outputDate + ".dat");
 	//outputfile.open("output.txt");
 	//outputfile.open("output/" + neuron + "_" + outputDate + ".dat");
 
@@ -108,7 +109,7 @@ int main()
 
 	read_connectome();
 	read_postsynaptic();
-	//testFiles(connectome_vector,postsynaptic_vector);
+	testFiles();
 
 	/***** END FILL VECTORS *****/
 
@@ -154,6 +155,7 @@ int main()
 	//  close the filestream
 	outputfile.close();
 
+	system("PAUSE");
 	return 0;
 }// end main
 
