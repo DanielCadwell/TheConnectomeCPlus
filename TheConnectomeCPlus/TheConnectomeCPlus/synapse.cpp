@@ -6,44 +6,55 @@
 
 using namespace std;
 
-synapse::synapse(void) { }
-
-synapse::synapse(string a, int c) {
-    neuronA = a;
-    weight = c;
+synapse::synapse(void)
+{
 }
 
-synapse::synapse(string a, string b, int c) {
-    neuronA = a;
-    neuronB = b;
-    weight = c;
+synapse::synapse(string a, int c)
+{
+	neuronA = a;
+	weight = c;
 }
 
-int synapse::get_weight() {
-    return weight;
+synapse::synapse(string a, string b, int c)
+{
+	neuronA = a;
+	neuronB = b;
+	weight = c;
 }
 
-void synapse::set_weight(int x) {
-    //weight += atoi(x.c_str());
-    weight += x;
+int synapse::get_weight()
+{
+	return weight;
 }
 
-string synapse::get_neuronA() {
-    return neuronA;
+void synapse::set_weight(int x)
+{
+	//weight += atoi(x.c_str());
+	weight += x;
 }
 
-void synapse::set_neuronA(string x) {
-    neuronA = x;
+string synapse::get_neuronA()
+{
+	return neuronA;
 }
 
-string synapse::get_neuronB() {
-    return neuronB;
+void synapse::set_neuronA(string x)
+{
+	neuronA = x;
 }
 
-void synapse::set_neuronB(string x) {
-    neuronB = x;
+string synapse::get_neuronB()
+{
+	return neuronB;
 }
 
-void synapse::reset_weight() {
-    weight = 0;
+void synapse::set_neuronB(string x)
+{
+	neuronB = x;
+}
+
+void synapse::reset_weight()
+{
+	weight = 0;
 }
