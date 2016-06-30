@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="connectome.csv" />
+    <None Include="edgelist.csv" />
+    <None Include="postsynaptic.csv" />
+    <None Include="synaptic.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="synapse.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="synapse.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{91F90663-03E4-4089-8BE5-4AB22A9AAF08}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -145,9 +161,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
