@@ -27,16 +27,6 @@ string synaptic_file = "postsynaptic.csv";
 //string connectome_file = "/Users/vanessaulloa/ClionProjects/connectome/edgelist.csv";
 //string synaptic_file = "/Users/vanessaulloa/ClionProjects/connectome/synaptic.csv";
 
-//string connectome_file = "K:\\School\\Summer_2016\\connectome_noMPI\\connectome.csv";
-//string synaptic_file = "K:\\School\\Summer_2016\\connectome_noMPI\\postsynaptic.csv";
-//string connectome_file = "K:\\School\\Summer_2016\\connectome_noMPI\\edgelist.csv";
-//string synaptic_file = "K:\\School\\Summer_2016\\connectome_noMPI\\synaptic.csv";
-
-//string connectome_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\connectome.csv";
-//string synaptic_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\postsynaptic.csv";
-//string connectome_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\edgelist.csv";
-//string synaptic_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\synaptic.csv";
-
 /*
  * threshold - determines when neuron fires
  * counter - for display
