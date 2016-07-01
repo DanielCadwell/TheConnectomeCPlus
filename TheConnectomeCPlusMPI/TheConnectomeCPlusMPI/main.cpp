@@ -3,6 +3,7 @@
 #include <fstream>
 #include <ctime>
 #include "synapse.h"
+#include "mpi.h"
 
 /*
  * when (neuron A, neuron B, weight)
@@ -26,16 +27,6 @@ string synaptic_file = "postsynaptic.csv";
 //string synaptic_file = "/Users/vanessaulloa/ClionProjects/connectome/postsynaptic.csv";
 //string connectome_file = "/Users/vanessaulloa/ClionProjects/connectome/edgelist.csv";
 //string synaptic_file = "/Users/vanessaulloa/ClionProjects/connectome/synaptic.csv";
-
-//string connectome_file = "K:\\School\\Summer_2016\\connectome_noMPI\\connectome.csv";
-//string synaptic_file = "K:\\School\\Summer_2016\\connectome_noMPI\\postsynaptic.csv";
-//string connectome_file = "K:\\School\\Summer_2016\\connectome_noMPI\\edgelist.csv";
-//string synaptic_file = "K:\\School\\Summer_2016\\connectome_noMPI\\synaptic.csv";
-
-//string connectome_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\connectome.csv";
-//string synaptic_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\postsynaptic.csv";
-//string connectome_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\edgelist.csv";
-//string synaptic_file = "C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\synaptic.csv";
 
 /*
  * threshold - determines when neuron fires
@@ -61,7 +52,7 @@ void testFiles();
 
 ///
 
-int main()
+int main(int argc, char** argv)
 {
 	/*
 		connectome_vector:
@@ -70,51 +61,106 @@ int main()
 			maintains accumulated values for each neuron and muscle.
 	*/
 
-	/***** START USER INPUT *****/
+	/***** MPI IMPLEMENT *****/
+	MPI_Init(&argc, &argv);
 
-	cout << "Please enter a neuron: ";
-	cin >> neuron;
+	//	variables
+	int world_size, world_rank, name_len, token = 0;
+	int source, dest, offset, chunksize = 0;
+	char processor_name[MPI_MAX_PROCESSOR_NAME];
 
-	/***** END USER INPUT *****/
+	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+	MPI_Get_processor_name(processor_name, &name_len);
 
-	/***** OPEN FILE TO STORE SELECTED OUTPUT *****/
+	/***** END MPI IMPLEMENT *****/
 
-	//  get local time to append to file name for storage in output folder
-	time_t t = time(NULL);
-	tm* localTime = localtime(&t);
+	/***** FOR MASTER NODE *****/
 
-	int Day = localTime->tm_mday;
-	int Month = localTime->tm_mon + 1;
-	int Year = localTime->tm_year + 1900;
-	int Hour = localTime->tm_hour;
-	int Min = localTime->tm_min;
-	int Sec = localTime->tm_sec;
+	if (world_rank == 0) {
 
-	string outputDate = to_string(Day) + to_string(Month) + to_string(Year) + "_" + to_string(Hour) + to_string(Min) + to_string(Sec);
+		/***** FILL VECTORS *****/
 
-	//outputfile.open("/Users/vanessaulloa/ClionProjects/connectome_noMPI/output.txt");
-	//outputfile.open("/Users/vanessaulloa/ClionProjects/Connectome_Capstone_NoMPI/output/" + neuron + "_" + outputDate + ".dat");
-	//outputfile.open("K:\\School\\Summer_2016\\connectome_noMPI\\output\\"+ neuron + "_" + outputDate  + ".dat");
-	outputfile.open("C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\output\\" + neuron + "_" + outputDate + ".dat");
-	//outputfile.open("output.txt");
-	//outputfile.open("output/" + neuron + "_" + outputDate + ".dat");
+		read_connectome();
+		read_postsynaptic();
+		//testFiles();
 
-	/***** END FILE DECLARATION *****/
+		/***** END FILL VECTORS *****/
 
-	outputfile << "Please enter a neuron: ";
-	outputfile << neuron << endl;
+		/***** BEGINNING OUTPUT *****/
 
-	/***** FILL VECTORS *****/
+		cout << "\n----------\n";
+		cout << "The World Size is: " << world_size << endl;
+		cout << "Initial World Rank is: " << world_rank << endl;
+		cout << "connectome_vector size: " << connectome_vector.size() << endl;
+		cout << "postsynaptic_vector size: " << postsynaptic_vector.size() << endl;
+		cout << "----------\n";
 
-	read_connectome();
-	read_postsynaptic();
-	//testFiles(connectome_vector,postsynaptic_vector);
+		outputfile << "\n----------\n";
+		outputfile << "The World Size is: " << world_size << endl;
+		outputfile << "Initial World Rank is: " << world_rank << endl;
+		outputfile << "connectome_vector size: " << connectome_vector.size() << endl;
+		outputfile << "postsynaptic_vector size: " << postsynaptic_vector.size() << endl;
+		outputfile << "----------\n";
 
-	/***** END FILL VECTORS *****/
+		cout << "\n----------\n";
+		cout << "Processor: " << processor_name << ", world_rank: " << world_rank << endl;
+		cout << "----------\n";
 
-	/*****  THREADING START *****/
+		outputfile << "\n----------\n";
+		outputfile << "Processor: " << processor_name << ", world_rank: " << world_rank << endl;
+		outputfile << "----------\n";
 
-	/*****  THREADING END *****/
+		/***** END BEGINNING OUTPUT *****/
+
+		/***** START USER INPUT *****/
+
+		cout << "Please enter a neuron: ";
+		cin >> neuron;
+
+		/***** END USER INPUT *****/
+
+		/***** OPEN FILE TO STORE SELECTED OUTPUT *****/
+
+		//  get local time to append to file name for storage in output folder
+		time_t t = time(NULL);
+		tm* localTime = localtime(&t);
+
+		int Day = localTime->tm_mday;
+		int Month = localTime->tm_mon + 1;
+		int Year = localTime->tm_year + 1900;
+		int Hour = localTime->tm_hour;
+		int Min = localTime->tm_min;
+		int Sec = localTime->tm_sec;
+
+		string outputDate = to_string(Day) + to_string(Month) + to_string(Year) + "_" + to_string(Hour) + to_string(Min) + to_string(Sec);
+
+		//outputfile.open("/Users/vanessaulloa/ClionProjects/connectome_noMPI/output.txt");
+		//outputfile.open("/Users/vanessaulloa/ClionProjects/Connectome_Capstone_NoMPI/output/" + neuron + "_" + outputDate + ".dat");
+		//outputfile.open("K:\\School\\Summer_2016\\connectome_noMPI\\output\\"+ neuron + "_" + outputDate  + ".dat");
+		outputfile.open("C:\\Users\\Vanessa\\ClionProjects\\Connectome_Capstone_NoMPI\\output\\" + neuron + "_" + outputDate + ".dat");
+		//outputfile.open("output.txt");
+		//outputfile.open("output/" + neuron + "_" + outputDate + ".dat");
+
+		/***** END FILE DECLARATION *****/
+
+		outputfile << "Please enter a neuron: ";
+		outputfile << neuron << endl;
+
+		/***** ADDITIONAL VARIABLES *****/
+
+		chunksize = connectome_vector.size() / world_size;
+		t1 = clock();
+
+		/***** SEND TO OTHER NODES *****/
+
+		/***** MASTER NODE WORK START *****/
+
+		/***** END OF PROGRAM DATA *****/
+
+	}
+	/***** END MASTER NODE *****/
+
 
 	for (int i = 0; i < connectome_vector.size(); i++)
 	{

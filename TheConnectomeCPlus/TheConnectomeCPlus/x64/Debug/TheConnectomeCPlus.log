@@ -1,19 +1,2 @@
-﻿  synapse.cpp
-  main.cpp
-  Generating Code...
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(638,5): warning MSB4220: Waiting for the currently executing task "Link" to cancel.
+﻿  main.cpp
+  TheConnectomeCPlus.vcxproj -> C:\Users\Vanessa\Source\Repos\TheConnectomeCPlus\TheConnectomeCPlus\x64\Debug\TheConnectomeCPlus.exe

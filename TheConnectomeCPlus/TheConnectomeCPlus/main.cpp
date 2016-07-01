@@ -16,8 +16,8 @@ using namespace std;
 // global variables
 
 //  file names for linux implementation
-string connectome_file = "connectome.csv";
-string synaptic_file = "postsynaptic.csv";
+//string connectome_file = "connectome.csv";
+//string synaptic_file = "postsynaptic.csv";
 //string connectome_file = "edgelist.csv";
 //string synaptic_file = "synaptic.csv";
 
@@ -27,7 +27,11 @@ string synaptic_file = "postsynaptic.csv";
 //string connectome_file = "/Users/vanessaulloa/ClionProjects/connectome/edgelist.csv";
 //string synaptic_file = "/Users/vanessaulloa/ClionProjects/connectome/synaptic.csv";
 
-// need new file names for new project location
+string connectome_file = "C:\\Users\\Vanessa\\Source\\Repos\\TheConnectomeCPlus\\TheConnectomeCPlus\\TheConnectomeCPlus\\connectome.csv";
+string synaptic_file = "C:\\Users\\Vanessa\\Source\\Repos\\TheConnectomeCPlus\\TheConnectomeCPlus\\TheConnectomeCPlus\\postsynaptic.csv";
+//string connectome_file = "edgelist.csv";
+//string synaptic_file = "synaptic.csv";
+
 
 /*
  * threshold - determines when neuron fires
@@ -101,7 +105,7 @@ int main()
 
 	read_connectome();
 	read_postsynaptic();
-	testFiles();
+	//testFiles();
 
 	/***** END FILL VECTORS *****/
 
