@@ -27,6 +27,8 @@ string synaptic_file = "postsynaptic.csv";
 //string connectome_file = "/Users/vanessaulloa/ClionProjects/connectome/edgelist.csv";
 //string synaptic_file = "/Users/vanessaulloa/ClionProjects/connectome/synaptic.csv";
 
+// need new file names for new project location
+
 /*
  * threshold - determines when neuron fires
  * counter - for display
